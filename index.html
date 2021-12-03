@@ -2,41 +2,57 @@
 <html lang="en">
   <head>
     <title>Stylise - By Rayyan Nafees</title>
-    <style></style>
+    <style>
+      span {
+        color: silver;
+        font-style: italic;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      p {
+        /* padding: 20px; */
+        background-color: #efefef;
+        font-size: x-large;
+      }
+
+      input {
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 0.5px solid grey;
+        box-shadow: 1px 1px 10px 1px silver;
+        border-radius: 10px;
+        font-size: xx-large;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+    </style>
   </head>
   <body>
-    <input />
-    <button>conv</button>
+    <input placeholder="Type Something!" />
     <p></p>
+    <button>Copy</button>
   </body>
   <script>
     const inp = document.querySelector("input");
     const p = document.querySelector("p");
     const btn = document.querySelector("button");
+    btn.onclick = () => navigator.clipboard.writeText(p.innerText);
 
-    const ord = (c) => c.charCodeAt(0);
-    const chr = (n) => String.fromCharCode(n);
-    const range = (start, stop) =>
-      Array(stop)
-        .fill(0)
-        .map((i, n) => n + start);
-    const eng = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const styl = range(120016, 120016 + 26 + 26)
-      .map(chr)
-      .join("");
-    const replace = (c) => styl[eng.indexOf(c)];
-
-    const style = (str) =>
-      [...str].map((i) => (eng.includes(i) ? replace(i) : i)).join("");
-
-    inp.onkeydown = async(e) => {
-    // btn.onclick = async (e) => {
-      btn.innerText = "Converting...";
-      const styled = await fetch(
-        "https://stylise.pythonanywhere.com/" + inp.value
-      ).then((r) => r.text());
-      btn.innerText = "conv";
-      p.innerText = styled;
+    inp.onkeydown = async (e) => {
+      if (inp.value) {
+        p.innerHTML = "<span>Styling...</span>";
+        fetch("https://stylise.pythonanywhere.com/" + inp.value)
+          .then((r) => r.text())
+          .then((styled) => {
+            p.innerText = styled;
+          });
+      }
     };
   </script>
 </html>
