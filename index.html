@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stylise - By Rayyan Nafees</title>
+    <style></style>
+  </head>
+  <body>
+    <input />
+    <button>conv</button>
+    <p></p>
+  </body>
+  <script>
+    const inp = document.querySelector("input");
+    const p = document.querySelector("p");
+    const btn = document.querySelector("button");
+
+    const ord = (c) => c.charCodeAt(0);
+    const chr = (n) => String.fromCharCode(n);
+    const range = (start, stop) =>
+      Array(stop)
+        .fill(0)
+        .map((i, n) => n + start);
+    const eng = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const styl = range(120016, 120016 + 26 + 26)
+      .map(chr)
+      .join("");
+    const replace = (c) => styl[eng.indexOf(c)];
+
+    const style = (str) =>
+      [...str].map((i) => (eng.includes(i) ? replace(i) : i)).join("");
+
+    inp.onkeydown = async(e) => {
+    // btn.onclick = async (e) => {
+      btn.innerText = "Converting...";
+      const styled = await fetch(
+        "https://stylise.pythonanywhere.com/" + inp.value
+      ).then((r) => r.text());
+      btn.innerText = "conv";
+      p.innerText = styled;
+    };
+  </script>
+</html>
