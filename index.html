@@ -20,21 +20,21 @@
 
     <h4>Made with 🧡 by Rayyan</h4>
     <script>
-
       const inp = document.querySelector("input");
       const p = document.querySelector("p");
       const btn = document.querySelector("button");
       btn.onclick = () => navigator.clipboard.writeText(p.innerText);
 
-      inp.onkeydown = async (e) => {
-          if (inp.value) {
-              p.innerHTML = "<span>Styling...</span>";
-              fetch("https://stylise.pythonanywhere.com/" + inp.value)
-                  .then((r) => r.text())
-                  .then((styled) => {
-                      p.innerText = styled;
-                  });
-          }
+      const style = [..."𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"];
+      const alpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+      const _switch = (c) => style[alpha.indexOf(c)];
+      const stylise = (str) =>
+        [...str].map((i) => (alpha.includes(i) ? _switch(i) : i)).join("");
+
+      inp.onkeyup = async (e) => {
+        const typing = inp.value
+        console.log(stylise(typing))
+        p.innerText = stylise(typing);
       };
     </script>
   </body>
