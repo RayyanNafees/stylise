@@ -3,35 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Stylise.io - Cool and Awesome Name Customization.</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <title>Spotify Lyrics</title>
+    <link rel="stylesheet" href="assets/style.css" media="all" />
   </head>
 
   <body>
-    <a class="github-icon" href="#">Git</a>
-    <div class="top">
-      <h1 class="title">Stylise</h1>
-      <p>Stylize your name like 𝓡𝓪𝔂𝔂𝓪𝓷</p>
+    <div class="container">
+      <div class="box-a">
+        <img
+          class="thumbnail"
+          src="assets/photo.jpg"
+          height="70px"
+          width="80px"
+          alt=""
+        />
+        <div class="music">
+          <h2>Stylise</h2>
+          <p>By Rayyan Nafees</p>
+        </div>
+      </div>
+      <input class="el-b" placeholder="Type your name"></inp>
+      <!-- What doesn't kill you makes you wish you were dead.</p> -->
+      <span class="el-c">Copy</span>
     </div>
-    <br />
-    <input type="text" id="input" value="" placeholder="Type something" />
-    <div id="result-container"></div>
-    <button id="copy-btn">Copy Style</button>
-
-    <h4>Made with 🧡 by Rayyan</h4>
-    <script>
-      const inp = document.querySelector("input");
-      const p = document.querySelector("#result-container");
-      const btn = document.querySelector("button");
-      btn.onclick = () => navigator.clipboard.writeText(p.innerText);
-
-      const style = [..."𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"];
-      const alpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
-      const _switch = (c) => style[alpha.indexOf(c)];
-      const stylise = (str) =>
-        [...str].map((i) => (alpha.includes(i) ? _switch(i) : i)).join("");
-
-      inp.onkeyup = (e) => (p.innerText = stylise(inp.value));
-    </script>
   </body>
+
+  <script>
+    document.body.onload = () =>
+      document.querySelector("input").focus();
+  </script>
+  <script src="stylise.js"></script>
 </html>
