@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Normal";
-    src: url(encore_font_circular_book.otf);
+    src: url('encore_font_circular_book.otf');
 }
 
 @font-face {
     font-family: "Bold";
-    src: url(encore_font_circular_bold.otf);
+    src: url('encore_font_circular_bold.otf');
 }
 
 * {
