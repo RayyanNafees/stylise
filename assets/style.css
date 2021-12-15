@@ -59,7 +59,9 @@ body {
   font-family: "Quicksand", sans-serif, arial;
   background: inherit;
   color: inherit;
+  outline: none;
   border: none;
+  padding: 10px 5px;
   font-weight: 500;
 }
 
