@@ -78,5 +78,7 @@ const extras = {
   unrounds: ["【", "】"],
   smile: ["(っ◔◡◔)っ ♥", "♥"],
   wingdings:'✌︎👌︎👍︎👎︎☜︎☞︎☝︎☟︎✋︎☺︎😐︎☹︎💣︎☠︎⚐︎🏱︎✈︎☼︎💧︎❄︎🕆︎✞︎🕈︎✠︎✡︎☪︎♋︎♌︎♍︎♎︎♏︎♐︎♑︎♒︎♓︎🙰🙵●︎❍︎■︎□︎◻︎❑︎❒︎⬧︎⧫︎◆︎❖︎⬥︎⌧︎⍓︎⌘︎',
-  
+
 };
+
+// https://lingojam.com/FancyTextGenerator?fbclid=IwAR1lN_37KwwuaITvfym5X5GgU6uEQIGOlBDf783RoGk26TwYgGHpCLqZQZU
